@@ -13,14 +13,15 @@ import {
   ChevronRight,
   BookmarkPlus,
   Compass,
-  Award
+  Award,
+  FileCheck
 } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [selectedStaffId, setSelectedStaffId] = useState(null);
 
-  // Solano Team Directory with local public image paths
+  // Solano Team Directory with mapped public photos
   const staffList = [
     {
       id: "vtarutani",
@@ -160,10 +161,10 @@ export default function App() {
     <div className="min-h-screen bg-slate-900 text-slate-200 font-sans pb-24">
       <a className="skip-link" href="#main-content">Skip to main content</a>
 
-      {/* Header Banner */}
-      <header className="bg-gradient-to-b from-slate-800 to-slate-900 border-b border-slate-700 py-6 px-4">
+      {/* Header matching Job Board theme */}
+      <header className="bg-slate-900 border-b border-slate-800 py-6 px-4">
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-          <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 shadow-lg p-2">
+          <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 p-2 shadow-lg">
             <span className="text-emerald-400 font-black text-xl tracking-tighter">ceo</span>
           </div>
           <div>
@@ -171,8 +172,8 @@ export default function App() {
               <CheckCircle className="w-4 h-4 text-emerald-400" />
               <span className="text-emerald-400 font-medium text-xs">Fairfield & Solano County Hub</span>
             </div>
-            <h1 className="text-3xl font-extrabold text-white tracking-tight">CEO Solano Connect</h1>
-            <p className="text-slate-400 text-xs sm:text-sm mt-0.5">Center for Employment Opportunities • Official Participant Resource Portal</p>
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">CEO Solano Connect</h1>
+            <p className="text-slate-400 text-xs sm:text-sm mt-1">Center for Employment Opportunities • Official Participant Resource Portal</p>
           </div>
         </div>
       </header>
@@ -180,39 +181,70 @@ export default function App() {
       {/* Main Container */}
       <main id="main-content" className="max-w-4xl mx-auto px-4 py-6 space-y-8">
 
-        {/* Tab Selection */}
         {activeTab === 'home' && (
-          <div className="space-y-8">
+          <div className="space-y-6">
             
-            {/* Prominent Solano Job Board Link */}
-            <div className="bg-slate-800/80 hover:bg-slate-800 border-2 border-emerald-500/50 rounded-2xl p-6 text-center shadow-xl relative overflow-hidden">
-              <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-emerald-500"></div>
-              <span className="bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block shadow">
-                Featured Tool
-              </span>
-              <h2 className="text-2xl font-black text-white mb-2">Solano Fair Chance Job Board</h2>
-              <p className="text-slate-300 text-sm mb-5 max-w-md mx-auto">
-                Explore active job openings in Solano County curated specifically for returning citizens and fair-chance candidates.
-              </p>
-              <a 
-                href="https://microblog-mu.vercel.app/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-base min-h-[56px] px-8 rounded-xl transition-all shadow-lg shadow-emerald-500/20 w-full sm:w-auto"
-              >
-                <Briefcase className="w-5 h-5" />
-                Open Solano Job Board
-                <ExternalLink className="w-4 h-4 ml-1" />
-              </a>
+            {/* 1. Job Board Link Button Card */}
+            <div className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700 rounded-2xl p-5 shadow-xl transition-all relative overflow-hidden">
+              <div className="flex flex-col md:flex-row items-center gap-5">
+                <img 
+                  src="/images/job_board.jpeg" 
+                  alt="Solano Job Board" 
+                  className="w-full md:w-48 h-32 object-cover rounded-xl border border-slate-700 flex-shrink-0"
+                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                />
+                <div className="flex-1 text-center md:text-left">
+                  <div className="inline-flex items-center gap-1.5 bg-emerald-500/10 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full mb-2">
+                    <Briefcase className="w-3.5 h-3.5" /> Featured Tool
+                  </div>
+                  <h2 className="text-2xl font-black text-white mb-1">Solano Fair Chance Job Board</h2>
+                  <p className="text-slate-400 text-xs sm:text-sm mb-4">
+                    Explore active job openings in Solano County curated specifically for returning citizens and fair-chance candidates.
+                  </p>
+                  <a 
+                    href="https://microblog-mu.vercel.app/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm min-h-[50px] px-6 rounded-xl transition-all shadow-lg shadow-emerald-500/20 w-full sm:w-auto"
+                  >
+                    Open Solano Job Board
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
             </div>
 
-            {/* Start Here Guide Card */}
+            {/* 2. Participant Interview Notification Form Button */}
+            <div className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700 rounded-2xl p-5 shadow-xl transition-all">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3 text-center sm:text-left">
+                  <div className="w-12 h-12 rounded-xl bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center flex-shrink-0 mx-auto sm:mx-0">
+                    <FileCheck className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-white">Got an Interview? Let Us Know!</h3>
+                    <p className="text-slate-400 text-xs mt-0.5">Fill out this quick form so your team can help you prepare and support you.</p>
+                  </div>
+                </div>
+                <a 
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSd581usTiuUaw-OdJ8_mT1ghVeJWaelQSLRP-OpyNxyDTBG7A/viewform?usp=dialog"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-bold text-sm min-h-[48px] px-6 rounded-xl transition-all shadow-lg shadow-blue-500/20 w-full sm:w-auto flex-shrink-0"
+                >
+                  Fill Interview Form
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+
+            {/* 3. Start Here Guide Card */}
             <button 
               onClick={() => setActiveTab('starthere')}
-              className="w-full bg-slate-800/80 hover:bg-slate-800 border border-slate-700 rounded-2xl p-5 text-left transition-all flex items-center justify-between group min-h-[56px] shadow-lg"
+              className="w-full bg-slate-800/80 hover:bg-slate-800 border border-slate-700 rounded-2xl p-5 text-left transition-all flex items-center justify-between group shadow-lg min-h-[56px]"
             >
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center flex-shrink-0">
                   <Compass className="w-6 h-6" />
                 </div>
                 <div>
@@ -223,7 +255,7 @@ export default function App() {
               <ChevronRight className="w-6 h-6 text-slate-500 group-hover:text-white transition-colors" />
             </button>
 
-            {/* Who Can Help Me Section */}
+            {/* 4. Who Can Help Me Section */}
             <section className="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-5">
               <div className="flex items-center gap-2.5 mb-4">
                 <HelpCircle className="w-6 h-6 text-emerald-400" />
@@ -251,7 +283,7 @@ export default function App() {
               </div>
             </section>
 
-            {/* Action Cards Grid */}
+            {/* 5. Navigation Action Grid */}
             <div className="grid sm:grid-cols-2 gap-4">
               <button 
                 onClick={() => setActiveTab('team')}
@@ -364,7 +396,7 @@ export default function App() {
           </div>
         )}
 
-        {/* Team Page */}
+        {/* Team Page with FIXED photo dimensions */}
         {activeTab === 'team' && (
           <div className="space-y-6">
             <button onClick={() => { setActiveTab('home'); setSelectedStaffId(null); }} className="text-emerald-400 text-xs font-bold flex items-center gap-1 mb-2 hover:underline">
@@ -384,15 +416,15 @@ export default function App() {
                     }`}
                   >
                     <div className="flex gap-4 items-center">
-                      {/* Photo Display or Fallback Initial Avatar */}
+                      {/* Fixed thumbnail sizing: w-20 h-20 (80x80px) with object-cover */}
                       {staff.photo ? (
                         <img 
                           src={staff.photo} 
                           alt={staff.name} 
-                          className="w-16 h-16 rounded-full object-cover border-2 border-emerald-500/50 flex-shrink-0 shadow-md"
+                          className="w-20 h-20 rounded-full object-cover border-2 border-emerald-500/50 flex-shrink-0 shadow-md"
                         />
                       ) : (
-                        <div className="w-16 h-16 rounded-full bg-slate-700 border-2 border-emerald-500/50 flex items-center justify-center text-emerald-400 font-bold text-xl flex-shrink-0 shadow-md">
+                        <div className="w-20 h-20 rounded-full bg-slate-700 border-2 border-emerald-500/50 flex items-center justify-center text-emerald-400 font-bold text-2xl flex-shrink-0 shadow-md">
                           {staff.name.charAt(0)}
                         </div>
                       )}
