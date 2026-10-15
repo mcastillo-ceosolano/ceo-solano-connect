@@ -14,7 +14,9 @@ import {
   BookmarkPlus,
   Compass,
   Award,
-  FileCheck
+  FileCheck,
+  AlertTriangle,
+  MessageSquare
 } from 'lucide-react';
 
 export default function App() {
@@ -151,10 +153,29 @@ export default function App() {
     { problem: "I have a question about class or orientation", solution: "P2E Instructor (Ms. Maura)", staffId: "mtorkildson" },
   ];
 
+  // Updated Events matching updated requirements
   const events = [
-    { title: "Pathway to Employment (P2E) Orientation", date: "Every Monday", time: "9:00 AM – 12:00 PM", location: "CEO Fairfield Office", desc: "Required work readiness orientation for new participants." },
-    { title: "Resume & Online Application Lab", date: "Every Wednesday", time: "1:00 PM – 3:00 PM", location: "CEO Fairfield Computer Lab", desc: "1-on-1 assistance updating resumes and submitting job applications." },
-    { title: "Fair Chance Employer Spotlight", date: "Third Thursday of the Month", time: "10:30 AM – 12:00 PM", location: "Fairfield Office / Virtual", desc: "Meet direct hiring managers from local fair-chance employers." }
+    { 
+      title: "Pathway to Employment (P2E) Orientation", 
+      date: "Scheduled as Needed", 
+      time: "9:00 AM – 12:00 PM", 
+      location: "CEO Fairfield Office", 
+      desc: "Orientation sessions scheduled based on referral and program need." 
+    },
+    { 
+      title: "Professional Development Workshop", 
+      date: "Monday – Friday (Daily)", 
+      time: "9:00 AM – 12:00 PM", 
+      location: "CEO Fairfield Computer Lab & Classroom", 
+      desc: "Daily interactive forum covering interviewing skills, professionalism, financial literacy, and career readiness." 
+    },
+    { 
+      title: "Retention Specialist Open Office Hours", 
+      date: "Monday – Friday (Daily)", 
+      time: "2:00 PM – 3:00 PM", 
+      location: "CEO Fairfield Office", 
+      desc: "Open hours for paystub submission, rapid rewards inquiries, and post-placement support with Ms. Mariah." 
+    }
   ];
 
   return (
@@ -195,7 +216,7 @@ export default function App() {
                   Explore active job openings in Solano County curated specifically for returning citizens and fair-chance candidates.
                 </p>
 
-                {/* Small Button-Sized Image Graphic placed right below the heading */}
+                {/* Small Button-Sized Image Graphic */}
                 <div className="my-3 flex justify-center sm:justify-start">
                   <a href="https://microblog-mu.vercel.app/" target="_blank" rel="noopener noreferrer">
                     <img 
@@ -254,7 +275,7 @@ export default function App() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">New Here? Start Here.</h3>
-                  <p className="text-slate-400 text-xs mt-0.5">7 quick steps to work successfully with CEO Solano.</p>
+                  <p className="text-slate-400 text-xs mt-0.5">Essential steps, call-out instructions, and staff guidance.</p>
                 </div>
               </div>
               <ChevronRight className="w-6 h-6 text-slate-500 group-hover:text-white transition-colors" />
@@ -319,7 +340,7 @@ export default function App() {
                 <Calendar className="w-8 h-8 text-purple-400 mb-3" />
                 <div>
                   <h3 className="text-lg font-bold text-white mb-1">Calendar & Events</h3>
-                  <p className="text-slate-400 text-xs">Workshops, orientations, and office event schedules.</p>
+                  <p className="text-slate-400 text-xs">Workshops, orientations, and open office hour schedules.</p>
                 </div>
               </button>
 
@@ -353,7 +374,7 @@ export default function App() {
               </h3>
               <p className="text-slate-300 text-xs leading-relaxed">
                 1411 Oliver Road, Suite 120, Fairfield, CA 94534<br />
-                Office Hours: Monday – Friday, 8:00 AM – 5:00 PM
+                Office Hours: Monday – Friday, 9:00 AM – 5:00 PM
               </p>
               <div className="grid sm:grid-cols-2 gap-2 pt-2">
                 <a href="tel:7075150468" className="bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm min-h-[56px] px-4 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-lg shadow-emerald-500/20">
@@ -375,17 +396,62 @@ export default function App() {
               ← Back to Home
             </button>
             <h2 className="text-2xl font-black text-white">New Here? Start Here.</h2>
-            <p className="text-slate-400 text-sm">Follow these 7 steps to get the most out of working with CEO Solano:</p>
+            <p className="text-slate-400 text-sm">Follow these essential guidelines to navigate your work with CEO Solano:</p>
 
-            <div className="space-y-3">
+            {/* Prominent Call-Out / Plug-Out Instruction Section */}
+            <div className="bg-amber-500/10 border-2 border-amber-500/40 rounded-2xl p-5 space-y-4 shadow-xl">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0">
+                  <MessageSquare className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-black text-white">How to Call Out / Plug Out</h3>
+                  <p className="text-amber-400 text-xs font-semibold">If you cannot attend a scheduled workday</p>
+                </div>
+              </div>
+
+              <div className="bg-slate-900/80 p-4 rounded-xl border border-slate-800 space-y-3 text-xs text-slate-200">
+                <p className="font-bold text-emerald-400 text-sm">
+                  📱 Step 1: TEXT "Call Out" to <a href="sms:13322373809" className="underline font-black text-white">(332) 237-3809</a>
+                </p>
+                <p className="text-amber-300 font-medium">
+                  ⚠️ DO NOT CALL this number. You must send a TEXT message.
+                </p>
+                <p className="leading-relaxed">
+                  <strong>Timing:</strong> Send your text the day before or the morning before your shift starts.
+                </p>
+                
+                <div className="bg-slate-800/80 p-3 rounded-lg border border-slate-700 space-y-1.5">
+                  <p className="font-bold text-white text-xs">⏳ AI Automated Prompt Sequence (Be Patient):</p>
+                  <p className="text-slate-300">
+                    The call-out line is AI-driven and processes one prompt at a time. Depending on your cell connection, it may take a few seconds to process each step:
+                  </p>
+                  <ol className="list-decimal pl-5 space-y-1 text-slate-300 mt-1">
+                    <li>Wait for the prompt asking for your <strong>CEO Code</strong>.</li>
+                    <li>Enter your <strong>Assigned Crew</strong> when prompted.</li>
+                    <li>Select the <strong>Day</strong> you are calling out for.</li>
+                    <li>Provide your <strong>Reason</strong>.</li>
+                  </ol>
+                </div>
+
+                <div className="bg-red-500/10 border border-red-500/30 p-3 rounded-lg text-red-300 flex items-start gap-2">
+                  <AlertTriangle className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                  <p>
+                    <strong>Warning:</strong> If you do not complete the text prompts before shift start, you will receive an unexcused absence and be removed from the schedule until you connect with a CEO staff member.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-3 pt-2">
               {[
-                { step: "1", title: "Save the CEO Office Number", desc: "Add (707) 515-0468 to your phone contacts today." },
-                { step: "2", title: "Know Your Job Coach", desc: "Ms. Lola is your main contact for job readiness and interview practice." },
-                { step: "3", title: "Check the Calendar", desc: "Attend required orientation and job search workshops on Wednesdays." },
-                { step: "4", title: "Prepare Work Documents", desc: "Ensure you have a valid Photo ID and Social Security card ready." },
-                { step: "5", title: "Open the Solano Job Board", desc: "Bookmark our live Fair-Chance Job Board to browse active listings." },
-                { step: "6", title: "Keep Contacts Updated", desc: "Tell your Job Coach immediately if your phone number or email changes." },
-                { step: "7", title: "Check Voicemail & Email Daily", desc: "Employers and CEO staff will call or email with interview offers." }
+                { step: "1", title: "Save the CEO Office Number", desc: "Add (707) 515-0468 to your phone contacts. Office hours: 9 AM – 5 PM, Mon – Fri." },
+                { step: "2", title: "Know Your Job Coach", desc: "Ms. Lola is your main contact for job readiness and 1-on-1 interview practice." },
+                { step: "3", title: "Attend Professional Development", desc: "Participate in daily workshops (9 AM – 12 PM) covering interviews, professionalism, and financial literacy." },
+                { step: "4", title: "Prepare Work Documents", desc: "Ensure you have a valid Photo ID and Social Security card ready for placement." },
+                { step: "5", title: "Open the Solano Job Board", desc: "Bookmark our live Fair-Chance Job Board to browse active regional listings." },
+                { step: "6", title: "Keep Contacts Updated", desc: "Tell your Job Coach immediately if your phone number or email address changes." },
+                { step: "7", title: "Check Voicemail & Email Daily", desc: "Employers and CEO staff call or email directly with interview offers." }
               ].map((s, idx) => (
                 <div key={idx} className="bg-slate-800/80 border border-slate-700 rounded-xl p-4 flex gap-4 items-start shadow-lg">
                   <span className="w-8 h-8 rounded-full bg-emerald-500 text-white font-black text-sm flex items-center justify-center flex-shrink-0">
@@ -401,7 +467,7 @@ export default function App() {
           </div>
         )}
 
-        {/* Team Page with STRICT MAX DIMENSION CAP on headshot photos */}
+        {/* Team Page */}
         {activeTab === 'team' && (
           <div className="space-y-6">
             <button onClick={() => { setActiveTab('home'); setSelectedStaffId(null); }} className="text-emerald-400 text-xs font-bold flex items-center gap-1 mb-2 hover:underline">
@@ -421,7 +487,6 @@ export default function App() {
                     }`}
                   >
                     <div className="flex gap-4 items-center">
-                      {/* Photo cap: strictly bounded to max-w-[80px] / max-h-[80px] to prevent giant images */}
                       {staff.photo ? (
                         <img 
                           src={staff.photo} 
@@ -494,8 +559,8 @@ export default function App() {
                 { title: "Job Coaching & Barrier Removal", contact: "Ms. Lola", desc: "1-on-1 career planning, resume support, and workplace problem solving." },
                 { title: "Transitional Work Crews & Daily Pay", contact: "Mr. Bailey & Supervisors", desc: "Paid transitional work experience, daily pay program, and work gear." },
                 { title: "Fair-Chance Job Placement", contact: "Moises Castillo", desc: "Direct connections to employers in Solano who hire individuals with records." },
-                { title: "Job Retention & Bonuses", contact: "Ms. Mariah", desc: "Ongoing support after securing employment, plus retention milestone rewards." },
-                { title: "Pathway to Employment (P2E) Class", contact: "Ms. Maura", desc: "Interactive work readiness instruction, communication, and digital literacy skills." }
+                { title: "Job Retention & Rapid Rewards", contact: "Ms. Mariah", desc: "Post-placement support, paystub submission, rapid rewards, and career advancement." },
+                { title: "Pathway to Employment (P2E) Class", contact: "Ms. Maura", desc: "Work readiness instruction scheduled based on referral and participant need." }
               ].map((svc, i) => (
                 <div key={i} className="bg-slate-800/80 border border-slate-700 rounded-xl p-5 space-y-2 shadow-lg">
                   <h3 className="text-lg font-bold text-white">{svc.title}</h3>
@@ -513,7 +578,7 @@ export default function App() {
             <button onClick={() => setActiveTab('home')} className="text-emerald-400 text-xs font-bold flex items-center gap-1 mb-2 hover:underline">
               ← Back to Home
             </button>
-            <h2 className="text-2xl font-black text-white">Workshops & Events</h2>
+            <h2 className="text-2xl font-black text-white">Workshops & Office Hours</h2>
 
             <div className="space-y-3">
               {events.map((ev, i) => (
