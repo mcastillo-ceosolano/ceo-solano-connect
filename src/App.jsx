@@ -161,7 +161,7 @@ export default function App() {
     <div className="min-h-screen bg-slate-900 text-slate-200 font-sans pb-24">
       <a className="skip-link" href="#main-content">Skip to main content</a>
 
-      {/* Header matching Job Board theme */}
+      {/* Header Banner */}
       <header className="bg-slate-900 border-b border-slate-800 py-6 px-4">
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
           <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 p-2 shadow-lg">
@@ -184,33 +184,38 @@ export default function App() {
         {activeTab === 'home' && (
           <div className="space-y-6">
             
-            {/* 1. Job Board Link Button Card */}
-            <div className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700 rounded-2xl p-5 shadow-xl transition-all relative overflow-hidden">
-              <div className="flex flex-col md:flex-row items-center gap-5">
-                <img 
-                  src="/images/job_board.jpeg" 
-                  alt="Solano Job Board" 
-                  className="w-full md:w-48 h-32 object-cover rounded-xl border border-slate-700 flex-shrink-0"
-                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                />
-                <div className="flex-1 text-center md:text-left">
-                  <div className="inline-flex items-center gap-1.5 bg-emerald-500/10 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full mb-2">
-                    <Briefcase className="w-3.5 h-3.5" /> Featured Tool
-                  </div>
-                  <h2 className="text-2xl font-black text-white mb-1">Solano Fair Chance Job Board</h2>
-                  <p className="text-slate-400 text-xs sm:text-sm mb-4">
-                    Explore active job openings in Solano County curated specifically for returning citizens and fair-chance candidates.
-                  </p>
-                  <a 
-                    href="https://microblog-mu.vercel.app/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm min-h-[50px] px-6 rounded-xl transition-all shadow-lg shadow-emerald-500/20 w-full sm:w-auto"
-                  >
-                    Open Solano Job Board
-                    <ExternalLink className="w-4 h-4" />
+            {/* 1. Solano Fair Chance Job Board Card */}
+            <div className="bg-slate-800/80 hover:bg-slate-800 border border-slate-700 rounded-2xl p-5 shadow-xl transition-all">
+              <div className="text-center sm:text-left">
+                <div className="inline-flex items-center gap-1.5 bg-emerald-500/10 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full mb-2">
+                  <Briefcase className="w-3.5 h-3.5" /> Featured Tool
+                </div>
+                <h2 className="text-2xl font-black text-white mb-1">Solano Fair Chance Job Board</h2>
+                <p className="text-slate-400 text-xs sm:text-sm mb-4">
+                  Explore active job openings in Solano County curated specifically for returning citizens and fair-chance candidates.
+                </p>
+
+                {/* Small Button-Sized Image Graphic placed right below the heading */}
+                <div className="my-3 flex justify-center sm:justify-start">
+                  <a href="https://microblog-mu.vercel.app/" target="_blank" rel="noopener noreferrer">
+                    <img 
+                      src="/images/job_board.jpeg" 
+                      alt="Solano Job Board" 
+                      className="w-44 h-14 object-cover rounded-lg border border-slate-600 hover:border-emerald-500 transition-all shadow-md"
+                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                    />
                   </a>
                 </div>
+
+                <a 
+                  href="https://microblog-mu.vercel.app/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm min-h-[48px] px-6 rounded-xl transition-all shadow-lg shadow-emerald-500/20 w-full sm:w-auto mt-2"
+                >
+                  Open Solano Job Board
+                  <ExternalLink className="w-4 h-4" />
+                </a>
               </div>
             </div>
 
@@ -396,7 +401,7 @@ export default function App() {
           </div>
         )}
 
-        {/* Team Page with FIXED photo dimensions */}
+        {/* Team Page with STRICT MAX DIMENSION CAP on headshot photos */}
         {activeTab === 'team' && (
           <div className="space-y-6">
             <button onClick={() => { setActiveTab('home'); setSelectedStaffId(null); }} className="text-emerald-400 text-xs font-bold flex items-center gap-1 mb-2 hover:underline">
@@ -416,15 +421,15 @@ export default function App() {
                     }`}
                   >
                     <div className="flex gap-4 items-center">
-                      {/* Fixed thumbnail sizing: w-20 h-20 (80x80px) with object-cover */}
+                      {/* Photo cap: strictly bounded to max-w-[80px] / max-h-[80px] to prevent giant images */}
                       {staff.photo ? (
                         <img 
                           src={staff.photo} 
                           alt={staff.name} 
-                          className="w-20 h-20 rounded-full object-cover border-2 border-emerald-500/50 flex-shrink-0 shadow-md"
+                          className="w-20 h-20 max-w-[80px] max-h-[80px] rounded-full object-cover border-2 border-emerald-500/50 flex-shrink-0 shadow-md"
                         />
                       ) : (
-                        <div className="w-20 h-20 rounded-full bg-slate-700 border-2 border-emerald-500/50 flex items-center justify-center text-emerald-400 font-bold text-2xl flex-shrink-0 shadow-md">
+                        <div className="w-20 h-20 max-w-[80px] max-h-[80px] rounded-full bg-slate-700 border-2 border-emerald-500/50 flex items-center justify-center text-emerald-400 font-bold text-2xl flex-shrink-0 shadow-md">
                           {staff.name.charAt(0)}
                         </div>
                       )}
