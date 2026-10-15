@@ -13,21 +13,14 @@ import {
   ChevronRight,
   BookmarkPlus,
   Compass,
-  Award,
-  Share2,
-  GraduationCap,
-  IdCard,
-  Clock
+  Award
 } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [selectedStaffId, setSelectedStaffId] = useState(null);
 
-  // CEO Official Logo asset URL
-  const CEO_LOGO_URL = "https://raw.githubusercontent.com/mcastillo-ceosolano/ceo-solano-connect/main/public/images/CEO_primary_green_white_letters.png";
-
-  // Solano Team Directory with updated Bios, photos, and removals
+  // Solano Team Directory with local public image paths
   const staffList = [
     {
       id: "vtarutani",
@@ -37,7 +30,7 @@ export default function App() {
       department: "Leadership",
       email: "vtarutani@ceoworks.org",
       phone: "415-521-4991",
-      photo: "https://i.ibb.co/vz02N1X/veronica.jpg", // Replace or host photo URL
+      photo: "/images/veronica.png",
       bio: "Born and raised in Gardena, Los Angeles, Veronica Tarutani has over 10 years of community impact experience. Prior to CEO—where she started as a Retention Specialist in 2019 and became Site Director in 2022—her work spanned advocating for at-risk youth, neurodivergent children, and domestic violence survivors, alongside management at In-N-Out Burger. She holds a Criminology & Criminal Justice degree from Sonoma State and is a devoted cat mom to her dynamic trio: Milo, Yoshi, and Rozzie.",
       services: ["Program Leadership", "Community Partnerships", "Participant Advocacy", "Escalations"],
       roleHelp: "Executive decisions, community issues, or overall program feedback."
@@ -50,7 +43,7 @@ export default function App() {
       department: "Employer Relations",
       email: "mocastillo@ceoworks.org",
       phone: "707-903-8771",
-      photo: "https://i.ibb.co/3WfKzS0/moises.jpg",
+      photo: "/images/moises.png",
       bio: "I began my journey with CEO as a participant in April 2024, working as a crew member in Sacramento. After transferring to CEO Solano, I found a community and support system that truly felt like home. Today, as a Job Developer, I’m proud to give that support back. My mission is to connect participants who are ready to work with sustainable employment opportunities and help them take the next step toward long-term success.",
       services: ["Employer Matching", "Fair-Chance Job Openings", "Direct Interview Setup", "Industry Placement"],
       roleHelp: "Connecting with specific hiring managers or applying for featured job openings."
@@ -63,7 +56,7 @@ export default function App() {
       department: "Retention & Job Support",
       email: "mnance@ceoworks.org",
       phone: "707-227-9593",
-      photo: "https://i.ibb.co/mXzS9Yh/mariah.jpg",
+      photo: "/images/mariah.png",
       bio: "My journey with CEO began in 2021 on crew, followed by the opportunity to be part of CEO’s first-ever internship cohort. That experience opened the door to my current role as a Job Coach / Retention Specialist, where I’ve now spent nearly five years empowering others to build sustainable careers. Having walked this path myself, I’m deeply dedicated to helping our participants stay motivated, stay employed, and reach their full potential.",
       services: ["Job Retention Support", "Milestone Rewards", "Workplace Conflict Advice", "Career Advancement"],
       roleHelp: "Help staying employed, reporting work hours, or claiming retention bonuses."
@@ -76,7 +69,7 @@ export default function App() {
       department: "Classroom & Support",
       email: "mtorkildson@ceoworks.org",
       phone: "415-720-4411",
-      photo: "https://i.ibb.co/S3G6QJd/maura.jpg",
+      photo: "/images/maura.png",
       bio: "Leads Pathway to Employment (P2E) workshops and coordinates supportive service distribution.",
       services: ["P2E Orientation", "Work Readiness Class", "Supportive Services Determination", "Gas & Transit Cards"],
       roleHelp: "Classroom training, orientation dates, or supportive service eligibility."
@@ -89,20 +82,20 @@ export default function App() {
       department: "Job Coaching",
       email: "lgallino@ceoworks.org",
       phone: "707-227-4144",
-      photo: "https://i.ibb.co/3y6dMv8/lola.jpg",
+      photo: "/images/lola.png",
       bio: "Provides 1-on-1 job readiness coaching, interview preparation, resume creation, and individual barrier removal.",
       services: ["1-on-1 Job Coaching", "Resume Building", "Interview Prep", "Barrier Removal", "Supportive Services Referral"],
       roleHelp: "Resume creation, interview practice, or finding job leads."
     },
     {
       id: "jbailey",
-      name: "Mr. Bailey",
+      name: "Mr. Bailey (Jeffrey)",
       pronouns: "he/him/his",
       title: "Manager, Social Enterprise",
       department: "Transitional Work",
       email: "jbailey@ceoworks.org",
       phone: "707-914-6450",
-      photo: "https://i.ibb.co/jZnZ6qQ/bailey.jpg",
+      photo: "/images/jeffrey.png",
       bio: "Manages transitional work crews, worksite safety, van dispatch, and daily work schedules.",
       services: ["Work Crew Scheduling", "Van Pickup & Routes", "Worksite Safety", "Daily Pay Eligibility"],
       roleHelp: "Transitional work crew schedules, van pickups, or work gear."
@@ -115,7 +108,7 @@ export default function App() {
       department: "Transitional Work",
       email: "dconey@ceoworks.org",
       phone: "707-227-6599",
-      photo: "https://i.ibb.co/C38xMb4/dylan.jpg",
+      photo: null,
       bio: "Leads field work crews, supporting participant skill development and daily job site performance.",
       services: ["Field Work Crew Leadership", "Equipment Training", "Workplace Safety"],
       roleHelp: "Worksite supervisor questions or daily crew check-ins."
@@ -128,7 +121,7 @@ export default function App() {
       department: "Transitional Work",
       email: "mcordell@ceoworks.org",
       phone: "707-903-0550",
-      photo: "https://i.ibb.co/4T7yP6P/mekyla.jpg",
+      photo: null,
       bio: "Guides work crews on field sites with a focus on teamwork, safety, and daily work performance.",
       services: ["Work Crew Supervision", "Skills Training", "On-Site Support"],
       roleHelp: "Worksite check-ins or work crew instructions."
@@ -141,7 +134,7 @@ export default function App() {
       department: "Transitional Work",
       email: "grideau@ceoworks.org",
       phone: "707-515-0468",
-      photo: "https://i.ibb.co/m5WfGg0/gregory.jpg",
+      photo: null,
       bio: "Supervises work crews, enforcing safety standards and daily team productivity.",
       services: ["Site Supervision", "Safety Compliance", "Field Instruction"],
       roleHelp: "Field site questions or work crew logistics."
@@ -167,7 +160,7 @@ export default function App() {
     <div className="min-h-screen bg-slate-900 text-slate-200 font-sans pb-24">
       <a className="skip-link" href="#main-content">Skip to main content</a>
 
-      {/* Header Banner matching Job Board styling */}
+      {/* Header Banner */}
       <header className="bg-gradient-to-b from-slate-800 to-slate-900 border-b border-slate-700 py-6 px-4">
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
           <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 shadow-lg p-2">
@@ -390,11 +383,20 @@ export default function App() {
                       isHighlighted ? 'border-emerald-500 ring-2 ring-emerald-500/30' : 'border-slate-700'
                     }`}
                   >
-                    <div className="flex gap-4 items-start">
-                      {/* Avatar Circle */}
-                      <div className="w-14 h-14 rounded-full bg-slate-700 border-2 border-emerald-500/50 flex items-center justify-center text-emerald-400 font-bold text-xl flex-shrink-0 overflow-hidden">
-                        {staff.name.charAt(0)}
-                      </div>
+                    <div className="flex gap-4 items-center">
+                      {/* Photo Display or Fallback Initial Avatar */}
+                      {staff.photo ? (
+                        <img 
+                          src={staff.photo} 
+                          alt={staff.name} 
+                          className="w-16 h-16 rounded-full object-cover border-2 border-emerald-500/50 flex-shrink-0 shadow-md"
+                        />
+                      ) : (
+                        <div className="w-16 h-16 rounded-full bg-slate-700 border-2 border-emerald-500/50 flex items-center justify-center text-emerald-400 font-bold text-xl flex-shrink-0 shadow-md">
+                          {staff.name.charAt(0)}
+                        </div>
+                      )}
+
                       <div>
                         <h3 className="text-xl font-black text-white">{staff.name}</h3>
                         <p className="text-xs text-emerald-400 font-semibold">{staff.title} • <span className="text-slate-400">{staff.pronouns}</span></p>
@@ -404,7 +406,7 @@ export default function App() {
                       </div>
                     </div>
 
-                    <p className="text-xs text-slate-300 leading-relaxed bg-slate-900/40 p-3 rounded-xl border border-slate-800">{staff.bio}</p>
+                    <p className="text-xs text-slate-300 leading-relaxed bg-slate-900/40 p-3.5 rounded-xl border border-slate-800">{staff.bio}</p>
 
                     <div className="bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
                       <p className="text-xs font-bold text-white mb-2">What I can help you with:</p>
