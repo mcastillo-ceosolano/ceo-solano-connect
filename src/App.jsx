@@ -153,7 +153,7 @@ export default function App() {
     { problem: "I have a question about class or orientation", solution: "P2E Instructor (Ms. Maura)", staffId: "mtorkildson" },
   ];
 
-  // Updated Events matching updated requirements
+  // Updated Events matching requirements
   const events = [
     { 
       title: "Pathway to Employment (P2E) Orientation", 
@@ -182,19 +182,24 @@ export default function App() {
     <div className="min-h-screen bg-slate-900 text-slate-200 font-sans pb-24">
       <a className="skip-link" href="#main-content">Skip to main content</a>
 
-      {/* Header Banner */}
-      <header className="bg-slate-900 border-b border-slate-800 py-6 px-4">
-        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-          <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 p-2 shadow-lg">
-            <span className="text-emerald-400 font-black text-xl tracking-tighter">ceo</span>
+      {/* Header Banner - Compact Mobile Layout */}
+      <header className="bg-slate-900 border-b border-slate-800 py-3.5 sm:py-6 px-4">
+        <div className="max-w-4xl mx-auto flex flex-row items-center gap-3 sm:gap-4 text-left">
+          {/* Logo Badge: Scaled down to 48px on mobile, 64px on sm+ screens */}
+          <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 p-1.5 sm:p-2 shadow-lg">
+            <span className="text-emerald-400 font-black text-lg sm:text-xl tracking-tighter">ceo</span>
           </div>
-          <div>
-            <div className="inline-flex items-center gap-2 bg-emerald-500/20 px-3 py-1 rounded-full mb-1">
-              <CheckCircle className="w-4 h-4 text-emerald-400" />
-              <span className="text-emerald-400 font-medium text-xs">Fairfield & Solano County Hub</span>
+          <div className="min-w-0 flex-1">
+            <div className="inline-flex items-center gap-1.5 bg-emerald-500/20 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full mb-0.5 sm:mb-1">
+              <CheckCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 flex-shrink-0" />
+              <span className="text-emerald-400 font-medium text-[11px] sm:text-xs truncate">Fairfield & Solano County Hub</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">CEO Solano Connect</h1>
-            <p className="text-slate-400 text-xs sm:text-sm mt-1">Center for Employment Opportunities • Official Participant Resource Portal</p>
+            <h1 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight truncate">
+              CEO Solano Connect
+            </h1>
+            <p className="text-slate-400 text-[11px] sm:text-sm mt-0.5 line-clamp-1">
+              Center for Employment Opportunities • Official Participant Portal
+            </p>
           </div>
         </div>
       </header>
