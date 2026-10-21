@@ -86,7 +86,7 @@ export default function App() {
       email: "lgallino@ceoworks.org",
       phone: "707-227-4144",
       photo: "/images/lola.png",
-      bio: "My journey with CEO began as a Site Supervisor. That initial opportunity turned into a full time position, and for the next three and a half years I had the priviledge of leading and driving and eight-person crew on highway maintenance projects. That hands-on frontline experience paved the way for my promotion to Job Coach in the office as a vocational staff member. I work with participants to translate their potential into sustainable long-term employment. Outside of work, I bring that same hands-on creativity and enrgy to my personal life. I am a dedicated DIY enthusiast, I give back to the community by volunteering with Community Cat Advocatees in Vallejo.",
+      bio: "My journey with CEO kicked off as a Site Supervisor—a spark that quickly ignited into a full-time career! For three and a half years, I had the privilege of leading and driving an energetic eight-person crew on high-impact highway maintenance projects. That hands-on frontline experience paved the way for my promotion to Job Coach, where I now work directly with participants in the office to transform their raw potential into sustainable, long-term employment. Outside of work, I bring that same hands-on creativity and energy to my personal life! I’m a passionate DIY enthusiast, and I love giving back to my community by volunteering with Community Cat Advocates in Vallejo.",
       services: ["1-on-1 Job Coaching", "Resume Building", "Interview Prep", "Barrier Removal", "Supportive Services Referral"],
       roleHelp: "Resume creation, interview practice, or finding job leads."
     },
